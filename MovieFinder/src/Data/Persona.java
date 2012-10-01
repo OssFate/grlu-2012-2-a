@@ -1,13 +1,23 @@
 package Data;
 
 import java.util.Calendar;
+import javax.persistence.*;
 
+@Entity
 public class Persona {
+    @Id
+    @Column(name = "idPersona", nullable = false)
+    private int id;
     private String name, lastname, picture, birthplace;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar birthdate;
+
+    public Persona() {
+    }
     
-    public Persona(String name, String lastname, String picture, Calendar birthdate,
+    public Persona(int id, String name, String lastname, String picture, Calendar birthdate,
             String birthplace){
+        this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.picture = picture;
@@ -29,4 +39,8 @@ public class Persona {
     
     public String getBirthplace() { return birthplace; }
     public void setBirthplace(String birthplace) { this.birthplace = birthplace; }
+    
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    
 }

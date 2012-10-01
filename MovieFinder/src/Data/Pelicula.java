@@ -1,17 +1,27 @@
 package Data;
 
 import java.sql.Time;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Pelicula {
+    @Id
+    @Column(name = "idPelicula", nullable = false)
+    private int id, anio;
     private String nombre, portada, genero;
-    private int anio;
     private double puntaje;
     private Time duracion;
     private boolean alquilable;
     private boolean comprable;
 
-    public Pelicula(String nombre, int anio, String portada, String genero,
+    public Pelicula() {
+    }
+
+    public Pelicula(int id, String nombre, int anio, String portada, String genero,
             double puntaje, Time duracion, boolean alquilable, boolean comprable) {
+        this.id = id;
         this.nombre = nombre;
         this.anio = anio;
         this.portada = portada;
@@ -21,7 +31,7 @@ public class Pelicula {
         this.alquilable = alquilable;
         this.comprable = comprable;
     }
-
+    
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
     
@@ -45,4 +55,7 @@ public class Pelicula {
 
     public boolean esComprable() { return comprable; }
     public void setComprable(boolean comprable) { this.comprable = comprable; }
+
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 }
