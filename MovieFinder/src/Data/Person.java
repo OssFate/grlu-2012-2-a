@@ -1,10 +1,11 @@
 package Data;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.*;
 
 @Entity
-public class Persona {
+public class Person implements Serializable {
     @Id
     @Column(name = "idPersona", nullable = false)
     private int id;
@@ -12,10 +13,10 @@ public class Persona {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar birthdate;
 
-    public Persona() {
+    public Person() {
     }
     
-    public Persona(int id, String name, String lastname, String picture, Calendar birthdate,
+    public Person(int id, String name, String lastname, String picture, Calendar birthdate,
             String birthplace){
         this.id = id;
         this.name = name;
@@ -42,5 +43,4 @@ public class Persona {
     
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
-    
 }

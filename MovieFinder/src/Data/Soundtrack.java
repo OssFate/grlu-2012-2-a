@@ -1,26 +1,27 @@
 package Data;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Soundtrack {
+public class Soundtrack implements Serializable {
     @Id
     @Column(name = "idSoundtrack", nullable = false)
     int id;
-    private String imagen;
+    private String picture;
 
     public Soundtrack() {
     }
 
-    public Soundtrack(String imagen) {
-        this.imagen = imagen;
+    public Soundtrack(String picture) {
+        this.picture = picture;
     }
-
-    public String getImagen() { return imagen; }
-    public void setImagen(String imagen) { this.imagen = imagen; }   
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+    
+    public String getPicture() { return picture; }
+    public void setPicture(String picture) { this.picture = picture; }
 }

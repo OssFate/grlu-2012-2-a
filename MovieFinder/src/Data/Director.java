@@ -1,10 +1,11 @@
 package Data;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Entity;
 
 @Entity
-public class Director extends Persona{
+public class Director extends Person implements Serializable{
     public Director() {
     }
     public Director(int id, String name, String lastname, String picture, Calendar birthdate,
