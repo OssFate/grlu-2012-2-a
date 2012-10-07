@@ -5,6 +5,7 @@ import java.sql.Time;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -22,6 +23,8 @@ public class Movie implements Serializable {
     Soundtrack soundtrack;
     @OneToMany
     Director director;
+    @ManyToMany
+    Actor actor;
 
     public Movie() {
     }

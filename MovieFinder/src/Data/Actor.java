@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 @Entity
 public class Actor extends Person implements Serializable{
+    @ManyToMany
+    Movie movie;
     public Actor() {
     }
     public Actor(int id, String name, String lastname, String picture, Calendar birthdate,
