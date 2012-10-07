@@ -5,6 +5,7 @@ import java.sql.Time;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Song implements Serializable {
@@ -13,6 +14,8 @@ public class Song implements Serializable {
     private int id;
     private String title;
     private Time duration;
+    @OneToMany
+    Artist artist;
 
     public Song() {
     }

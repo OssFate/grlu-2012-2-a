@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Soundtrack implements Serializable {
@@ -11,6 +12,8 @@ public class Soundtrack implements Serializable {
     @Column(name = "idSoundtrack", nullable = false)
     int id;
     private String picture;
+    @OneToMany
+    Song song;
 
     public Soundtrack() {
     }

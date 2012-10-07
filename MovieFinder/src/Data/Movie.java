@@ -5,6 +5,8 @@ import java.sql.Time;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Movie implements Serializable {
@@ -16,6 +18,10 @@ public class Movie implements Serializable {
     private Time duration;
     private boolean rentable;
     private boolean purchasable;
+    @OneToOne
+    Soundtrack soundtrack;
+    @OneToMany
+    Director director;
 
     public Movie() {
     }
