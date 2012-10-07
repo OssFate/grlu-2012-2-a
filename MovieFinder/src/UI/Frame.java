@@ -12,8 +12,11 @@ package UI;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.persistence.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import Data.*;
+import java.util.List;
 
 /**
  *
@@ -24,10 +27,18 @@ public class Frame extends javax.swing.JFrame {
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();{
     this.setLocation(469,176);}
     
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("GRLUPU");
+    EntityManager em = emf.createEntityManager();
+    
     public Frame() {
         super("Movie Finder");
         initComponents();
         setResizable(false);
+    }
+    
+    public List<Movie> Find(String q){
+        TypedQuery<Movie> query = em.createQuery(q,Movie.class);
+        return query.getResultList();
     }
     
     @SuppressWarnings("unchecked")
