@@ -1,0 +1,1 @@
+An application for movie searching using JPA.
